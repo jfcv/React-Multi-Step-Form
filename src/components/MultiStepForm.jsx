@@ -30,17 +30,19 @@ function MultiStepForm() {
         initialStep: 0,
     })
 
+    const props = { formData, setForm, navigation };
+
     switch (step.id) {
         case 'names':
-            return <Names />;
+            return <Names { ...props }/>; //spread operator 
         case 'address':
-            return <Address />;
+            return <Address { ...props }/>;
         case 'contact':
-            return <Contact />;
+            return <Contact { ...props }/>;
         case 'review':
-            return <Review />;
+            return <Review { ...props }/>;
         case 'submit':
-            return <Submit />;
+            return <Submit { ...props }/>;
     }
 
     return(
