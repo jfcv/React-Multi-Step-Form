@@ -1,11 +1,14 @@
 import React from 'react'
+import Container from '@material-ui-/core/Container'
 
-function Review() {
+export const Review = () => {
     return(
-        <div>
-            <h1>Review</h1>
-        </div>
+        <Container>
+            <h3>Review</h3>
+        </Container>
     )
 }
 
-export default Review
+export const RenderAccordion = () => {
+
+}
