@@ -32,7 +32,7 @@ export const RenderAccordion = ({ summary, go, details }) => (
                 <IconButton
                     color= "primary"
                     component="span"
-                    onClick={() => go(`${summary.toLowerCase()}`)}
+                    onClick={() => go(`${summary.toLowerCase() }`)}
                 >
                     <EditIcon />
                 </IconButton>

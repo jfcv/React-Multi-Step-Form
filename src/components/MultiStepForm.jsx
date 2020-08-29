@@ -33,7 +33,7 @@ function MultiStepForm() {
 
     const { step, navigation } = useStep({
         steps,
-        initialStep: 3,
+        initialStep: 0,
     })
 
     const props = { formData, setForm, navigation };
