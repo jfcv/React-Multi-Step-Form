@@ -11,7 +11,7 @@ import EditIcon from '@material-ui/icons/Edit'
 
 import Button from '@material-ui/core/Button'
 
-export const RenderAccordion = ({ summary, details }) => (
+export const RenderAccordion = ({ summary, go, details }) => (
     <Accordion>
 
         <AccordionSummary
@@ -19,7 +19,7 @@ export const RenderAccordion = ({ summary, details }) => (
         >
             {summary}
         </AccordionSummary>
-        
+
         <AccordionDetails>
             <div>
 
@@ -32,6 +32,7 @@ export const RenderAccordion = ({ summary, details }) => (
                 <IconButton
                     color= "primary"
                     component="span"
+                    onClick={() => go(`${summary.toLowerCase()}`)}
                 >
                     <EditIcon />
                 </IconButton>
@@ -45,6 +46,8 @@ function Review({formData, navigation}) {
 
     let { firstName, lastName, nickName, address, city, state, zip, phone, email } = formData;
 
+    let { go } = navigation;
+
     return(
         <Container maxWidth='sm'>
 
@@ -52,6 +55,7 @@ function Review({formData, navigation}) {
 
             <RenderAccordion 
                 summary="Names"
+                go={ go }
                 details={[
                     {'First Name': firstName},
                     {'Last Name': lastName},
@@ -61,6 +65,7 @@ function Review({formData, navigation}) {
 
             <RenderAccordion 
                 summary="Address"
+                go={ go }
                 details={[
                     {'Address': address},
                     {'City': city},
@@ -71,6 +76,7 @@ function Review({formData, navigation}) {
 
             <RenderAccordion 
                 summary="Contact"
+                go={ go }
                 details={[
                     {'Phone': phone},
                     {'Email': email}
