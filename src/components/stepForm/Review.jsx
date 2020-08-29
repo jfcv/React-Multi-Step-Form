@@ -3,37 +3,51 @@ import Container from '@material-ui/core/Container'
 import Accordion from '@material-ui/core/Accordion'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+
 import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
 
+import Button from '@material-ui/core/Button'
+
 export const RenderAccordion = ({ summary, details }) => (
     <Accordion>
-        <AccordionSummary>{summary}</AccordionSummary>
+
+        <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+        >
+            {summary}
+        </AccordionSummary>
+        
         <AccordionDetails>
             <div>
+
                 { 
-                details.map((data) => {
-                    return <ListItemText>{ `${Object.keys(data)[0]}: ${data[Object.keys(data)[0]]}` }</ListItemText>
+                details.map((data, index) => {
+                    return <ListItemText key={index}>{ `${Object.keys(data)[0]}: ${data[Object.keys(data)[0]]}` }</ListItemText>
                 }) 
                 }
+
                 <IconButton
                     color= "primary"
                     component="span"
                 >
                     <EditIcon />
                 </IconButton>
+
             </div>
         </AccordionDetails>
     </Accordion>
 )
 
-function Review({formData}) {
+function Review({formData, navigation}) {
 
     let { firstName, lastName, nickName, address, city, state, zip, phone, email } = formData;
 
     return(
         <Container maxWidth='sm'>
+
             <h3>Review</h3>
 
             <RenderAccordion 
@@ -62,6 +76,16 @@ function Review({formData}) {
                     {'Email': email}
                 ]}
             />
+
+            <Button
+                variant='contained'
+                fullWidth
+                color='primary'
+                onClick={() => {navigation.next()}}
+                style={{marginTop: '1rem'}}
+            >
+                Submit
+            </Button>
 
         </Container>
     )
