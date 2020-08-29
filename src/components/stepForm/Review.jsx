@@ -35,6 +35,7 @@ function Review({formData}) {
     return(
         <Container maxWidth='sm'>
             <h3>Review</h3>
+
             <RenderAccordion 
                 summary="Names"
                 details={[
@@ -43,6 +44,25 @@ function Review({formData}) {
                     {'Nick Name': nickName},
                 ]}
             />
+
+            <RenderAccordion 
+                summary="Address"
+                details={[
+                    {'Address': address},
+                    {'City': city},
+                    {'State': state},
+                    {'Zip': zip},
+                ]}
+            />
+
+            <RenderAccordion 
+                summary="Contact"
+                details={[
+                    {'Phone': phone},
+                    {'Email': email}
+                ]}
+            />
+
         </Container>
     )
 }
